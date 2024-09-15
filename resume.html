@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stylish Resume</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+
+  </head>
+  <body>
+    <h1 class="main-page-heading">UBAID ULLAH RESUME BUILDER</h1>
+    <h1 class="main-page-heading">PROFESSIONAL RESUME</h1>
+    <div class="resume">
+      <h2>Your Customized Resume</h2>
+      <p class="editable-note">your resume is live editable!</p>
+
+      <div class="resume-container">
+        <div class="left-column">
+          <div class="item">
+            <i class="fas fa-user icon"></i>
+            <span class="title">Name:</span>
+            <p id="name" contenteditable="true"></p>
+          </div>
+          <div class="item">
+            <i class="fas fa-envelope icon"></i>
+            <span class="title">Email:</span>
+            <p id="email" contenteditable="true"></p>
+          </div>
+          <div class="item">
+            <i class="fas fa-phone icon"></i>
+            <span class="title">Phone:</span>
+            <p id="phone" contenteditable="true"></p>
+          </div>
+        </div>
+
+        <div class="right-column">
+          <div class="item">
+            <i class="fas fa-graduation-cap icon"></i>
+            <span class="title">Education:</span>
+            <p id="education" contenteditable="true"></p>
+          </div>
+          <div class="item">
+            <i class="fas fa-briefcase icon"></i>
+            <span class="title">Experience:</span>
+            <p id="experience" contenteditable="true"></p>
+          </div>
+          <div class="item">
+            <i class="fas fa-tools icon"></i>
+            <span class="title">Skills:</span>
+            <ul id="skillsList" contenteditable="true"></ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="download-section">
+        <button id="download-resume">Download</button>
+        <button id="generate-link-btn">Generate Link</button>
+      </div>
+      <div id="shareable-link"></div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+     // Download Resume as PDF (excluding no-print sections)
+document.getElementById('download-resume').addEventListener('click', () => {
+    const resumeContent = document.querySelector('.resume');
+
+    // Temporarily hide elements with "no-print" class
+    const noPrintElements = document.querySelectorAll('.no-print');
+    noPrintElements.forEach(el => el.style.display = 'none');
+
+    // Wait a moment to ensure content is fully rendered
+    setTimeout(() => {
+        // Generate PDF
+        html2pdf().from(resumeContent).save().then(() => {
+            // Restore "no-print" elements after download
+            noPrintElements.forEach(el => el.style.display = 'block');
+        }).catch(err => {
+            console.error('Error generating PDF:', err);
+        });
+    }, 100); // Adjust delay if needed
+});
+
+    </script>
+  </body>
+</html>

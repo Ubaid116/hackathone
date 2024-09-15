@@ -1,0 +1,237 @@
+/* General styles */
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #f0f4f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+  
+  :root {
+    --primary: #1abc9c;
+    --secondary: #2c3e50;
+    --white: #ffffff;
+    --gray: #ecf0f1;
+    --light-gray: #bdc3c7;
+    --highlight: #e74c3c;
+  }
+  
+  /* Heading styles */
+  .main-page-heading {
+    font-size: 2.5rem;
+    color: var(--primary);
+    text-shadow: 2px 2px var(--light-gray);
+    margin-bottom: 2rem;
+    animation: fadeInDown 1s ease-in-out;
+  }
+  
+  @keyframes fadeInDown {
+    0% {
+      transform: translateY(-20px);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Input Form Styles */
+  .input-form {
+    background-color: var(--white);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    animation: slideIn 1s ease-in-out;
+  }
+  
+  @keyframes slideIn {
+    0% {
+      opacity: 1;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .input {
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--light-gray);
+    font-size: 1rem;
+  }
+  
+  .generate-btn {
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    font-size: 1.2rem;
+  }
+  
+  .generate-btn:hover {
+    background-color: var(--highlight);
+    transform: scale(1.05);
+  }
+  
+  /* Resume Styles */
+  .resume {
+    width: 100%;
+    max-width: 900px;
+    background-color: var(--white);
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 1rem;
+    display: flex;
+    animation: fadeInDown 1s ease-in-out;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .resume h2 {
+    color: var(--primary);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .editable-note {
+    color: black;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  /* Resume Layout */
+  .resume-container {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .left-column,
+  .right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.3s, transform 0.3s;
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+  
+  .item:hover {
+    background-color: var(--light-gray);
+    transform: scale(1.02);
+  }
+  
+  .icon {
+    font-size: 1.5rem;
+    color: var(--primary);
+  }
+  
+  .title {
+    font-weight: bold;
+    color: var(--secondary);
+  }
+  
+  .item p,
+  .item ul {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--secondary);
+  }
+  
+  .item ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .item ul li {
+    margin: 0.5rem 0;
+  }
+  
+  /* Button Styles */
+  .download-section {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  #download-resume,
+  #generate-link-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    background-color: var(--primary);
+    color: var(--white);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+  }
+  
+  #download-resume:hover,
+  #generate-link-btn:hover {
+    background-color: var(--highlight);
+    transform: scale(1.05);
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .resume-container {
+      flex-direction: column;
+    }
+  
+    .main-page-heading {
+      font-size: 1.8rem;
+    }
+  
+    .resume h2 {
+      font-size: 1.5rem;
+    }
+  
+    .input-form {
+      padding: 1.5rem;
+    }
+  
+    .generate-btn {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .resume {
+      padding: 1rem;
+      width: 90%;
+    }
+  
+    .item {
+      font-size: 0.9rem;
+    }
+  
+    .icon {
+      font-size: 1.2rem;
+    }
+  
+    .main-page-heading {
+      font-size: 1.5rem;
+    }
+  }
+  
